@@ -10,7 +10,7 @@ import { EncabezadoEstandarDirective } from './directives/encabezado-estandar.di
   declarations: [
     FormErrorsPipe,
     FullnamePipe,
-    EncabezadoEstandarDirective
+    EncabezadoEstandarDirective,
   ],
   imports: [
     CommonModule
@@ -18,7 +18,7 @@ import { EncabezadoEstandarDirective } from './directives/encabezado-estandar.di
   exports : [
     FullnamePipe,
     FormErrorsPipe,
-    EncabezadoEstandarDirective
+    EncabezadoEstandarDirective,
   ]
 })
 export class SharedModule { }

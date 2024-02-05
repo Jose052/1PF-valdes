@@ -1,51 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Alumno } from './lista-de-alumnos-model';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ABMDeAlumnosComponent } from './abm-de-alumnos/abm-de-alumnos.component';
-
+import { alumnosService } from './lista-de-alumnos.service';
 
 @Component({
   selector: 'app-lista-de-alumnos',
   templateUrl: './lista-de-alumnos.component.html',
   styleUrl: './lista-de-alumnos.component.scss'
 })
-export class ListaDeAlumnosComponent {
+export class ListaDeAlumnosComponent implements OnInit{
   displayedColumns = ['Id', 'Nombre completo', 'email', 'editar']
-  dataSource: Alumno[]=[
-    {
-      id: "03085c13bbf52064c2802fa5",
-      firstName: "Diego",
-      lastName: "Diaz",
-      email: "ddiaz@email.com"
-    },
-    {
-      id: "f52064c2802fa54c2802fa5",
-      firstName: "Giovanny",
-      lastName: "Rosas",
-      email: "GRosas@email.com"
-    }
-  ]
+  dataSource: Alumno[]=[]
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog,
+              private alumnService: alumnosService) {}
 
-  openUsersDialog(): void {
-    this.matDialog
-      .open(ABMDeAlumnosComponent)
-      .afterClosed()
-      .subscribe({
-        next: (v) => {
-          if (!!v) {
-            this.dataSource = [
-              ...this.dataSource,
-              {
-                ...v,
-                id: new Date().getTime(),
-              },
-            ];
-          }
-        },
-      });
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData():void{
+    this.alumnService.getAlumnos().subscribe(
+      {next :(alumnos:any) =>{
+        this.dataSource = alumnos
+      }}
+    )
   }
 
   onEditAlumn(alumn: Alumno): void {

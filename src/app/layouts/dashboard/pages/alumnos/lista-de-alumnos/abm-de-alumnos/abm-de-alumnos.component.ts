@@ -19,7 +19,7 @@ export class ABMDeAlumnosComponent {
     @Inject(MAT_DIALOG_DATA) public alum?: Alumno
   ) {
     this.alumnForm = this.fb.group({
-      fristName: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     });

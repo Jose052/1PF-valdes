@@ -1,35 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from './usuarios-model';
+
+import { UsuariosService } from './usuarios.service';
+
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrl: './usuarios.component.scss'
 })
-export class UsuariosComponent {
+export class UsuariosComponent implements OnInit {
 
   displayedColumns = ['Id', 'Nombre', 'Email', 'Rol']
-  dataSource: Usuario[]=[
-    {
-      id: '03085c13bbf52064c2802fa5',
-      firstName: 'Naruto',
-      lastName: 'Uzumaki',
-      email: 'naru@mail.com',
-      password: '123456',
-      role: 'ADMIN',
-    },
-    {
-      id: '03085c5478962064c2802fa5',
-      firstName: 'Sasuke',
-      lastName: 'Uchiha',
-      email: 'sasu@mail.com',
-      password: '123456',
-      role: 'USER',
-    },
-  ]
+  dataSource: Usuario[]=[]
 
-  onUsuarioSubitted(ev:Usuario): void{
-    this.dataSource=[...this.dataSource]
+  constructor(private usuariosService: UsuariosService) {}
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData():void{
+    this.usuariosService.getUsuarios().subscribe(
+      {next :(usuarios:any) =>{
+        this.dataSource = usuarios
+        console.log(this.dataSource)
+      }}
+    )
   }
 
 }

@@ -1,6 +1,6 @@
 export interface Curso {
     id: string;
     name: string;
-    duration: Date;
+    duration: string;
     difficulty: string;
   }
