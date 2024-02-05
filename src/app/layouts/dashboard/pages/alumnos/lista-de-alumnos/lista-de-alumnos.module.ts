@@ -14,6 +14,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { SharedModule } from '../../../../../shared/shared.module';
 import { ABMDeAlumnosComponent } from './abm-de-alumnos/abm-de-alumnos.component';
+import { alumnosService } from './lista-de-alumnos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,10 @@ import { ABMDeAlumnosComponent } from './abm-de-alumnos/abm-de-alumnos.component
     MatDividerModule,
     MatToolbarModule,
     SharedModule
+  ],
+  providers:[
+    alumnosService,
+    HttpClientModule
   ]
 })
 export class ListaDeAlumnosModule { }
