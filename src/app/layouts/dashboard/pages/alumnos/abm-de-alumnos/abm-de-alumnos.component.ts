@@ -1,7 +1,7 @@
 import { Component, Inject, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Alumno } from '../lista-de-alumnos-model';
+import { Alumno } from '../alumnos-model';
 
 @Component({
   selector: 'app-abm-de-alumnos',
@@ -19,7 +19,7 @@ export class ABMDeAlumnosComponent {
     @Inject(MAT_DIALOG_DATA) public alum?: Alumno
   ) {
     this.alumnForm = this.fb.group({
-      fristName: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     });

@@ -1,31 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Curso } from './cursos-model';
+
+import { CursosService } from './cursos.service';
 
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
   styleUrl: './cursos.component.scss'
 })
-export class CursosComponent {
+export class CursosComponent implements OnInit {
 
   displayedColumns = ['Id', 'Nombre', 'Duracion', 'Dificultad']
-  dataSource: Curso[]=[
-    {
-      id: "03085c13bbf52064c2802fa5",
-      name: "Nodejs",
-      duration: new Date(),
-      difficulty: "Junior"
-    },
-    {
-      id: "f52064c2802fa54c2802fa5",
-      name: "Reactjs",
-      duration: new Date(),
-      difficulty: "Developer"
-    }
-  ]
+  dataSource: Curso[]=[]
 
-  onCursoSubitted(ev:Curso): void{
-    this.dataSource=[...this.dataSource]
+  constructor(private cursoService: CursosService) {}
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData():void{
+    this.cursoService.getCursos().subscribe(
+      {next :(cursos:any) =>{
+        this.dataSource = cursos
+        console.log(this.dataSource)
+      }}
+    )
   }
 
 }
