@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from './lista-de-alumnos-model';
+import { Alumno } from './alumnos-model';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ABMDeAlumnosComponent } from './abm-de-alumnos/abm-de-alumnos.component';
-import { alumnosService } from './lista-de-alumnos.service';
+import { alumnosService } from './alumnos.service';
 
 @Component({
-  selector: 'app-lista-de-alumnos',
-  templateUrl: './lista-de-alumnos.component.html',
-  styleUrl: './lista-de-alumnos.component.scss'
+  selector: 'app-alumnos',
+  templateUrl: './alumnos.component.html',
+  styleUrl: './alumnos.component.scss'
 })
-export class ListaDeAlumnosComponent implements OnInit{
+export class AlumnosComponent implements OnInit{
   displayedColumns = ['Id', 'Nombre completo', 'email', 'editar']
   dataSource: Alumno[]=[]
 

@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { UsersRoutingModule } from './usuarios-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    UsersRoutingModule
   ]
 })
 export class UsuariosModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListaDeAlumnosComponent } from './lista-de-alumnos.component';
+import { AlumnosComponent } from './alumnos.component';
+import { AlumnosRoutingModule } from './alumnos-routing.module';
 
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,14 +13,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar'
-import { SharedModule } from '../../../../../shared/shared.module';
+import { SharedModule } from '../../../../shared/shared.module';
 import { ABMDeAlumnosComponent } from './abm-de-alumnos/abm-de-alumnos.component';
-import { alumnosService } from './lista-de-alumnos.service';
+import { alumnosService } from './alumnos.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    ListaDeAlumnosComponent,
+    AlumnosComponent,
     ABMDeAlumnosComponent
   ],
   imports: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatDividerModule,
     MatToolbarModule,
-    SharedModule
+    SharedModule,
+    AlumnosRoutingModule,
   ],
   providers:[
     alumnosService,
