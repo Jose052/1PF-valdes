@@ -36,7 +36,7 @@ export class AuthService {
         tap((response) => {
           if (!!response[0]) {
             this.setAuthUser(response[0]);
-            this.router.navigate(['dashboard', 'home']);
+            this.router.navigate(['dashboard', '']);
           } else {
             this.alertsService.showError('Email o password invalidos');
           }
