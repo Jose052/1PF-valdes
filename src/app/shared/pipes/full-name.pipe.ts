@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Alumno } from '../../layouts/dashboard/pages/alumnos/lista-de-alumnos/lista-de-alumnos-model';
+import { Alumno } from '../../layouts/dashboard/pages/alumnos/alumnos-model';
 
 @Pipe({
   name: 'fullname'
